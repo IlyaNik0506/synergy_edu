@@ -1,0 +1,66 @@
+Index: 2. Basic/Webinar_2(Django)/Synergy_edu/main/templates/main/home.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>$Title$</title>\n</head>\n<body>\n$END$\n</body>\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2. Basic/Webinar_2(Django)/Synergy_edu/main/templates/main/home.html b/2. Basic/Webinar_2(Django)/Synergy_edu/main/templates/main/home.html
+--- a/2. Basic/Webinar_2(Django)/Synergy_edu/main/templates/main/home.html	
++++ b/2. Basic/Webinar_2(Django)/Synergy_edu/main/templates/main/home.html	
+@@ -1,10 +1,10 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html lang="ru">
+ <head>
+-  <meta charset="UTF-8">
+-  <title>$Title$</title>
++    <meta charset="UTF-8">
++    <title>главная страница</title>
+ </head>
+ <body>
+-$END$
++    <h1>Главная страница!</h1>
+ </body>
+ </html>
+\ No newline at end of file
+Index: 2. Basic/Webinar_2(Django)/Synergy_edu/main/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.shortcuts import render\nfrom django.http import  HttpResponse\n\n\ndef index(request):\n    return HttpResponse('<h1>Hello, it’s my web-site</h1>')\n\n\ndef about(request):\n    return HttpResponse('<h4>Страница о нас</h4>')\n# Create your views here.\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2. Basic/Webinar_2(Django)/Synergy_edu/main/views.py b/2. Basic/Webinar_2(Django)/Synergy_edu/main/views.py
+--- a/2. Basic/Webinar_2(Django)/Synergy_edu/main/views.py	
++++ b/2. Basic/Webinar_2(Django)/Synergy_edu/main/views.py	
+@@ -2,8 +2,8 @@
+ from django.http import  HttpResponse
+ 
+ 
+-def index(request):
+-    return HttpResponse('<h1>Hello, it’s my web-site</h1>')
++def home(request):
++    return render(request, 'main/text.html')
+ 
+ 
+ def about(request):
+Index: 2. Basic/Webinar_2(Django)/Synergy_edu/main/urls.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from django.urls import path\nfrom . import views\n\nurlpatterns = [\n    path('', views.index),\n    path('about', views.about)\n]
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/2. Basic/Webinar_2(Django)/Synergy_edu/main/urls.py b/2. Basic/Webinar_2(Django)/Synergy_edu/main/urls.py
+--- a/2. Basic/Webinar_2(Django)/Synergy_edu/main/urls.py	
++++ b/2. Basic/Webinar_2(Django)/Synergy_edu/main/urls.py	
+@@ -2,6 +2,6 @@
+ from . import views
+ 
+ urlpatterns = [
+-    path('', views.index),
++    path('', views.home),
+     path('about', views.about)
+ ]
+\ No newline at end of file
