@@ -1,0 +1,14 @@
+{% extends 'blog/jinja.html' %}
+
+{% block title %}
+    My blog
+{% endblock %}
+
+{% block text %}
+    {% for i in desk %}
+        <div class="blog blog-post">
+            <h3>{{ i.first_name }}</h3>
+        </div>
+    {% endfor %}
+
+{% endblock %}

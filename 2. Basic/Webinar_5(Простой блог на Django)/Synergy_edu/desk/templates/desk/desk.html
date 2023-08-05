@@ -1,0 +1,16 @@
+{% extends 'desk/jinja.html' %}
+
+{% block title %}
+    test page
+{% endblock %}
+
+{% block text %}
+    {% for i in desk %}
+        <div class="desk desk-post">
+            <h3>{{ i.title }}</h3>
+            <p>{{ i.text }}</p>
+            <p>{{ i.number }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}
